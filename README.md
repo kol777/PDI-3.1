@@ -7,6 +7,7 @@ in a Hadoop cluster based on the current and forecasted utilization. The objecti
 to profile and predict future application usages.
 
 OS: Centos 7.2
+
 Input: CSV files > 100MB
 
 In the first phase, we've created a csv parser which goes through all the information from a csv and writes it in a text file (input).
