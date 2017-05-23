@@ -29,10 +29,13 @@ By using top we noticed that the memory and CPU utilization had increased in a c
 
 After this we've installed an ambari-server, created a hadoop cluster and installed most of the ambari services.
 
-Job.sh script can be run in a Cron and will run a hdp joob with our mapreduce functions and it will save the memory and CPU utilization given by top in a metrics.txt file.
+Job.sh script can be used in crontab and the script will run a hadoop job with our mapreduce functions and it will save the memory and CPU utilization given by top in a metrics.txt file.
+
 
 TODO:
 
 Create a Job in Ambari (mapreduce service)
 
 See metrics in Ambari (ambari-metrics service)
+
+By seeing the metrics in Ambari, we will have a better understanding of how the application is behaving. Using the metrics from the ambari-metrics service, we will try to profile and predict future application usages with Machine Learning Techniques.
