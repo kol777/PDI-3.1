@@ -13,16 +13,25 @@ In the first phase, we've created a csv parser which goes through all the inform
 We've implemented a mapper script which is only appending a "1" after every element from our input file and finally, the reducer which is using the output from the mapper script to count the appearences of the words.
 
 *time cat input.txt | python mapper.py | sort -k 1,1 | python reducer.py*
+
 real    1m50.789s
+
 user    1m45.765s
+
 sys    0m21.681s
 
 In the next step we've installed hadoop 2.8.0 and all its dependencies and we ran our script using the hadoop jar:
 
 *time sudo /opt/hadoop-2.8.0/bin/hadoop jar /opt/hadoop-2.8.0/share/hadoop/tools/lib/hadoop-streaming-2.8.0.jar -file /home/flavius/Desktop/mapper.py /home/flavius/Desktop/reducer.py -mapper 'python /home/flavius/Desktop/mapper.py' -reducer 'python /home/flavius/Desktop/reducer.py' -input /home/flavius/PDIII/input.txt -output /home/flavius/PDIII/output4*
 
+By using top we noticed that the memory and CPU utilization had increased in a considerable manner.
 
-After this we've installed an ambari-server, created a hadoop cluster and installed most of the ambari servers.
+After this we've installed an ambari-server, created a hadoop cluster and installed most of the ambari services.
 
-TODO: - Create a Job in Ambari
-      - See metrics in Ambari
+Job.sh script can be run in a Cron and will run a hdp joob with our mapreduce functions and it will save the memory and CPU utilization given by top in a metrics.txt file.
+
+TODO:
+
+Create a Job in Ambari (mapreduce service)
+
+See metrics in Ambari (ambari-metrics service)
